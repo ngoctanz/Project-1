@@ -25,6 +25,23 @@ a {
   margin-left: auto;
   max-width: calc(100% - 48px);
 }
+/* class dùng để buộc chỉ hiển thị một hàng
+và thêm dấu ba chấm nếu vượt quá 1 hàng */
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: var(--line-clamp, 1);
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+/* thêm 3 chấm nếu vượt quá 2 dòng */
+.line-clamp.line-2 {
+  --line-clamp: 2;
+}
+/* buộc xuống dòng với trường hợp chữ viết liền không cách
+khiến cho web không thể nhận diện để xuống hàng */
+.break-all {
+  word-break: break-all;
+}
 
 /* header */
 .header {
@@ -63,7 +80,7 @@ a {
   width: 118px;
   border-radius: 24.5px;
   background: #171100;
-  padding: 0 16px;
+  padding: 0 3px;
   line-height: 50px;
   font-weight: 600px;
 }
@@ -241,7 +258,7 @@ a {
   width: 148px;
 }
 .btn-icon span:hover {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 .hero .recent {
   margin-top: 48px;
@@ -327,6 +344,8 @@ a {
   border-radius: 12px;
   border: 1px solid #e2dfda;
   background: #fff;
+  /* trọng số 3 item phải bằng nhau(kích thước luôn bằng nhau dù có thêm nd bên trong) */
+  flex: 1;
 }
 .course-item .info {
   padding: 16px 22px 22px 22px;
@@ -374,6 +393,145 @@ a {
   width: 118px;
   line-height: 50px;
   border-radius: 25px;
-  background: #ffb900;
   cursor: pointer;
+}
+.popular-bottom .foot .btn-foot:hover {
+  opacity: 0.9;
+  background: #ffb900;
+}
+/* feedback  */
+.feedback {
+  background: #2e2100;
+  /* thêm padding để tránh việc thêm nội dung thì màu nền không bị ôm sát */
+  padding: 96px 0;
+  /* cách phần popular 200 mà padding là 65 vậy còn thiếu 135;  */
+  margin-top: 135px;
+}
+.feedback-list .feedback-item {
+  display: flex;
+  align-items: center;
+  /* flex-shink để giữ nguyên định dạng của đối tượng (dùng cho phần feedback 3 người ở bên dưới)  */
+  flex-shrink: 0;
+}
+.feedback-item .avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.feedback-item .name {
+  color: #f7f7f7;
+  margin-top: 18px;
+  width: 130px;
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.42; /* 141.667% */
+}
+.feedback-item .tile-name {
+  color: #bfbcb2;
+  width: 159px;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.86; /* 185.714% */
+}
+.feedback-item .dots {
+  display: flex;
+  align-items: center;
+  margin-top: 28px;
+  gap: 6px;
+}
+.feedback-item .dot {
+  width: 6px;
+  height: 6px;
+  background: #634700;
+  border-radius: 50%;
+}
+/* khối bên phải  */
+.feedback-item .content {
+  width: 66%;
+  /* dịch box chữ sang bên phải  */
+  margin-left: auto;
+  margin-left: 217px;
+}
+.feedback-item block-quotes {
+  color: #fff;
+  font-size: 26px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.53; /* 153.846% */
+}
+.feedback-item .dot.active {
+  border-radius: 6px;
+  background: #ffb900;
+}
+/* features  */
+.features {
+  padding: 65px 0;
+  margin-top: 135px;
+}
+.features .body-features {
+  display: flex;
+}
+.features .image-features {
+  display: flex;
+  gap: 30px;
+}
+.image-features img {
+  width: 270px;
+  height: 404px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+.image-features .lower {
+  margin-top: 34px;
+}
+.features .content-features {
+  /* độ rộng tổng khối là 470px mà độ rộng hiển thị của trang là 1170
+  chia lấy tỉ lệ gàn 41% */
+  width: 41%;
+  margin-left: auto;
+  /* dùng display: flex để sử dụng justify-content, nhưng khi dùng flex;
+  thì khối sẽ đưa lên thành các cột, ta sử dụng flex-direction:col để đổi chiều main thành dọc 
+  vậy là các khối sẽ được đưa trở về chiều dọc 
+  lúc này ta dùng justify center để căn chiều dọc(chiều main mới) */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.features .content-features .h2-content {
+  font-size: 3.8rem;
+  font-weight: 700;
+  line-height: 1.26; /* 126.316% */
+  letter-spacing: -0.76px;
+}
+.features .content-features .p-content {
+  margin-top: 16px;
+  width: 458px;
+}
+.features .btn-features {
+  margin-top: 32px;
+  border-radius: 26px;
+  background-color: #ffb900;
+  width: 137px;
+}
+/* features 2 */
+.features.f2nd {
+  /* vì khối f2 thừa hưởng khối f1 có padding là 65px
+  vậy tổng là 130
+  suy ra khoảng cách thiếu là 200-130=70 */
+  margin-top: 70px;
+}
+.f2nd .body-features {
+  flex-direction: row-reverse;
+}
+.f2nd .image-features-f2nd img {
+  width: 470px;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.f2nd .content-features.c2nd {
+  margin-right: 130px;
+  width: 49%;
 }
