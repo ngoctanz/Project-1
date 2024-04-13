@@ -11,6 +11,14 @@ body {
 a {
   text-decoration: none;
 }
+.h2-content {
+  color: #171100;
+  font-family: var(--font-heading);
+  font-size: 3.8rem;
+  font-weight: 700;
+  line-height: 48px; /* 126.316% */
+  letter-spacing: -0.76px;
+}
 .main-content {
   width: 1170px;
   margin-right: auto;
@@ -174,7 +182,7 @@ a {
   padding-left: 130px;
   padding-top: 64px;
 }
-.hero .h1-content {
+.hero .h-content {
   color: #171100;
   font-family: var(--font-heading);
   font-size: 5.8rem;
@@ -234,24 +242,138 @@ a {
 }
 .btn-icon span:hover {
   opacity: 0.5;
-}.hero .recent{
+}
+.hero .recent {
   margin-top: 48px;
-font-size: 1.8rem;
-font-weight: 400;
-line-height: 1.67; /* 166.667% */
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.67; /* 166.667% */
 }
-.hero .end-text strong{
+.hero .end-text strong {
   color: #171100;
-font-family: var(--font-heading);
-font-size: 44px;
-font-style: normal;
-font-weight: 700;
-line-height: 54px; /* 122.727% */
-margin-right: 15px;
+  font-family: var(--font-heading);
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 54px; /* 122.727% */
+  margin-right: 15px;
 }
-.hero .end-text strong:nth-child(2){
+.hero .end-text strong:nth-child(2) {
   margin-left: 28px;
 }
-.hero .end-text{
+.hero .end-text {
   margin-top: 8px;
+}
+
+/* .popular */
+.popular {
+  /* cho padding: trên dưới để nền không ôm sát chữ; */
+  padding: 65px 0;
+  /* pading của popular là 65 
+  mà kc giữa popular vs hero là 200
+  vậy kc thiếu là 135 */
+  margin-top: 135px;
+}
+.popular-top .p-content {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.67; /* 166.667% */
+  width: 458px;
+  margin-top: 16px;
+}
+.popular-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.popular-top .button-popular {
+  display: flex;
+  /* gap là khoảng cách giữa 2 nút(icon bên trong) */
+  gap: 18px;
+}
+.button-popular .btn-popular {
+  /* trước khi dùng flex nó là inline nên đứng cạnh nhau, sau khi flex thì nó sẽ xếp dọc
+  dùng flex vào thẻ cha của nó */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #ffb900;
+  cursor: pointer;
+  color: #ffb900;
+}
+/* hover vào nút không hover vào khung chứa nút  */
+.btn-popular:hover {
+  background-color: #ffb900;
+  color: white;
+}
+/* foot-popular */
+.popular-bottom {
+  display: flex;
+  gap: 30px;
+  margin-top: 55px;
+}
+.popular-bottom .thumb {
+  width: 100%;
+  height: 278px;
+  border-radius: 12px 12px 0px 0px;
+}
+.popular-bottom .course-item {
+  width: 370px;
+  height: 466px;
+  border-radius: 12px;
+  border: 1px solid #e2dfda;
+  background: #fff;
+}
+.course-item .info {
+  padding: 16px 22px 22px 22px;
+}
+.course-item .rating,
+.course-item .info .head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.course-item .info .title {
+  color: #171100;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.67; /* 166.667% */
+}
+.course-item .star {
+  width: 18px;
+  height: 18px;
+}
+.course-item .value {
+  margin-left: 6px;
+  color: #fea31b;
+  line-height: 1.75; /* 175% */
+}
+.popular-bottom .info .p-content {
+  margin-top: 6px;
+  color: #5f5b53;
+  font-size: 1.4rem;
+  line-height: 1.86; /* 185.714% */
+}
+.popular-bottom .foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+.popular-bottom .foot .giaban {
+  color: #171100;
+  font-weight: 600;
+  font-size: 1.8rem;
+  line-height: 1.76; /* 166.667% */
+}
+.popular-bottom .foot .btn-foot {
+  width: 118px;
+  line-height: 50px;
+  border-radius: 25px;
+  background: #ffb900;
+  cursor: pointer;
 }
